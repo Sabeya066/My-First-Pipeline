@@ -58,10 +58,14 @@ ChromeOptions options=new ChromeOptions();
 		driver.get("https://www.bose.com/home");
 		driver.manage().window().maximize();
 		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(15));
+		try {
 		WebElement close= wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='close footer-email-modal__modal-close-btn p-0']")));
 		//WebElement close=driver.findElement(By.xpath("//button[@class='close footer-email-modal__modal-close-btn p-0']"));
 		close.click();
-		
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 		
 		WebElement search=driver.findElement(By.xpath("(//input[@placeholder='Search'])[2]"));
 		
