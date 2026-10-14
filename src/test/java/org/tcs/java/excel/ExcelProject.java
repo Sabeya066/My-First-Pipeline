@@ -145,8 +145,8 @@ ChromeOptions options=new ChromeOptions();
 	String projectPath = System.getProperty("user.dir");
 
 	// 2. Create the file reference using a dynamic path
-	File Excellocation = new File(projectPath + "/src/test/resources/Book.xlsx");F
-	ileInputStream fis=new FileInputStream(Excellocation);
+	File Excellocation = new File(projectPath + "/src/test/resources/Book.xlsx");
+	FileInputStream fis=new FileInputStream(Excellocation);
 	
 	Workbook w=new XSSFWorkbook(fis);
 	org.apache.poi.ss.usermodel.Sheet s=w.getSheet("Sheet1");
