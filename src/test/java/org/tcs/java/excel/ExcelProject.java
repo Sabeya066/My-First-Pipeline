@@ -216,6 +216,7 @@ sumit.click();
 js.executeScript("arguments[0].click();", sumit);
 //Safely close all browser windows and terminate background engine processes
 if (driver != null) {
+	driver.close();
  driver.quit();
 }
 
