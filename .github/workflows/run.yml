@@ -20,11 +20,5 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    # This installs Google Chrome and Chromedriver automatically on the remote machine
-    - name: Setup Chrome for Selenium
-      uses: browser-actions/setup-chrome@v1
-      with:
-        chrome-version: stable
-
     - name: Build and Run Application from Test Folder
       run: mvn test-compile exec:java -Dexec.mainClass="org.tcs.java.excel.ExcelProject" -Dexec.classpathScope="test"
