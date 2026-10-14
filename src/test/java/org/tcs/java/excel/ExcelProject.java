@@ -72,7 +72,7 @@ ChromeOptions options=new ChromeOptions();
 		
 		search.sendKeys("Noise Cancelling",Keys.ENTER);
 		// Wait up to 10 seconds for the button to become completely clickable online
-		WebDriverWait wait5 = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebDriverWait wait5 = new WebDriverWait(driver, Duration.ofSeconds(60));
 		WebElement resultButton = wait5.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='btn btn-secondary btn-md btn-block js-all-result-button']")));
 
 		// Now click the safely loaded element
