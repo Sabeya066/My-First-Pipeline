@@ -1,0 +1,27 @@
+name: Remote Maven Pipeline
+
+on:
+  push:
+    branches: [ "master", "main" ] # Runs whenever you push code from Eclipse
+
+jobs:
+  run-project:
+    runs-on: ubuntu-latest # The remote virtual computer
+
+    steps:
+    # 1. Downloads your code onto the remote machine
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    # 2. Sets up Java JDK 17
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+
+    # 3. Compiles and executes the project
+    # REPLACE 'com.example.MainClass' with your actual package and class name!
+    - name: Run Maven Application
+      run: mvn clean compile exec:java -Dexec.mainClass="org.tcs.java.excel.ExcelProject"
