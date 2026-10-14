@@ -156,7 +156,12 @@ ChromeOptions options=new ChromeOptions();
 	DataFormatter formatter=new DataFormatter();
 
 	for(int i=1;i<=s.getPhysicalNumberOfRows();i++) {
-		
+		r = s.getRow(i);
+
+		// 1. Move the check HERE (Before the inner 'j' loop starts)
+		if (r == null) {
+		    continue; // Safely skips this entire blank row and jumps to the next row 'i'
+		}
 		String Email="";
 		String first_name="";
 		String last_name="";
@@ -166,12 +171,7 @@ ChromeOptions options=new ChromeOptions();
 		String zi_p="";
 		r=s.getRow(i);
 		for(int j=0;j<=r.getPhysicalNumberOfCells();j++) {
-			r = s.getRow(i);
-
-			// 1. Move the check HERE (Before the inner 'j' loop starts)
-			if (r == null) {
-			    continue; // Safely skips this entire blank row and jumps to the next row 'i'
-			}
+			
 
 if(j==0) {
 		
