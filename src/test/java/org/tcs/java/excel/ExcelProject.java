@@ -212,7 +212,7 @@ WebElement zip=driver.findElement(By.name("dwfrm_shipping_shippingAddress_addres
 zip.sendKeys(zi_p);
 
 WebElement sumit= driver.findElement(By.xpath("//button[contains(text(),'Proceed to payment detail')]"));
-sumit.click();
+//sumit.click();
 js.executeScript("arguments[0].click();", sumit);
 //Safely close all browser windows and terminate background engine processes
 if (driver != null) {
