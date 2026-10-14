@@ -57,7 +57,7 @@ public class ExcelProject {
 		ChromeOptions options=new ChromeOptions();
 		options.addArguments("--headless"); // CRITICAL for remote pipeline running
 		options.addArguments("--no-sandbox");
-		
+		options.addArguments("--disable-dev-shm-usage");
 		options.addArguments("--remote-allow-origins=*");
 		
 		WebDriver driver=new ChromeDriver(options);
