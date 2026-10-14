@@ -24,6 +24,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class ExcelProject {
 	
 	
@@ -48,8 +50,14 @@ public class ExcelProject {
 		
 		public static void main(String[] args) throws InterruptedException, IOException {
 
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Kamal Sheriff\\eclipse-workspace\\fed\\Driver\\chromedriver.exe");
+		//System.setProperty("webdriver.chrome.driver", "C:\\Users\\Kamal Sheriff\\eclipse-workspace\\fed\\Driver\\chromedriver.exe");
+			
+			WebDriverManager.chromedriver().setup();
+			
 		ChromeOptions options=new ChromeOptions();
+		options.addArguments("--headless"); // CRITICAL for remote pipeline running
+		options.addArguments("--no-sandbox");
+		options.addArguments("--disable-dev-shm-usage");
 		options.addArguments("--remote-allow-origins=*");
 		
 		WebDriver driver=new ChromeDriver(options);
