@@ -166,6 +166,10 @@ ChromeOptions options=new ChromeOptions();
 		String zi_p="";
 		r=s.getRow(i);
 		for(int j=0;j<=r.getPhysicalNumberOfCells();j++) {
+			if (r == null) {
+			    continue; // Skips this row safely if it is completely empty or blank
+			}
+
 if(j==0) {
 		
  Email=formatter.formatCellValue(r.getCell(j));
