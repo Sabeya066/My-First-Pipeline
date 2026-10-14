@@ -2,11 +2,9 @@ package org.tcs.java.excel;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.Duration;
 
-import org.apache.poi.sl.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
@@ -19,12 +17,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.devtools.idealized.Javascript;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class ExcelProject {
 	
@@ -51,10 +46,8 @@ public class ExcelProject {
 		public static void main(String[] args) throws InterruptedException, IOException {
 
 		//System.setProperty("webdriver.chrome.driver", "C:\\Users\\Kamal Sheriff\\eclipse-workspace\\fed\\Driver\\chromedriver.exe");
-			
-			WebDriverManager.chromedriver().setup();
-			
-		ChromeOptions options=new ChromeOptions();
+				
+ChromeOptions options=new ChromeOptions();
 
 		options.addArguments("--headless"); // CRITICAL for remote pipeline running
 		options.addArguments("--no-sandbox");
