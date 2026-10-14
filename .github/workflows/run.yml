@@ -3,7 +3,7 @@ name: Remote Maven Pipeline
 on:
   push:
     branches: [ "master" ]
-  workflow_dispatch:
+  workflow_dispatch: #
 
 jobs:
   run-project:
