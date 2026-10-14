@@ -71,7 +71,14 @@ ChromeOptions options=new ChromeOptions();
 		
 		
 		search.sendKeys("Noise Cancelling",Keys.ENTER);
-		driver.findElement(By.xpath("//button[@class='btn btn-secondary btn-md btn-block js-all-result-button']")).click();
+		// Wait up to 10 seconds for the button to become completely clickable online
+		WebDriverWait wait5 = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement resultButton = wait5.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='btn btn-secondary btn-md btn-block js-all-result-button']")));
+
+		// Now click the safely loaded element
+		resultButton.click();
+
+		//driver.findElement(By.xpath("//button[@class='btn btn-secondary btn-md btn-block js-all-result-button']")).click();
 		Thread.sleep(10000);
 
 		//WebElement product=driver.findElement(By.xpath("//img[@data-src='https://assets.bosecreative.com/transform/5dc4d20d-ae18-488a-8054-ebfc6c23ebfe/QCHII27-Blk_PDP_E-Comm_Gallery_1_1500x1120?format=avif&quality=95&io=width:400,height:300,transform:fit&io=width:400,height:300,transform:fit']"));
