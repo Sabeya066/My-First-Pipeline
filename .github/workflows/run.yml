@@ -3,7 +3,7 @@ name: Remote Maven Pipeline
 on:
   push:
     branches: [ "master" ]
-  workflow_dispatch: # This adds a manual "Run" button just in case
+  workflow_dispatch:
 
 jobs:
   run-project:
@@ -20,6 +20,6 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    # Let's test if the project builds first without breaking on the main class path
-    - name: Build and Run Application
-      run: mvn clean compile exec:java -Dexec.mainClass="org.tcs.java.excel.ExcelProject"
+    # This instructs Maven to compile test folders and look into the test classpath scope
+    - name: Build and Run Application from Test Folder
+      run: mvn test-compile exec:java -Dexec.mainClass="org.tcs.java.excel.ExcelProject" -Dexec.classpathScope="test"
